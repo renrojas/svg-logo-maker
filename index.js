@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const {Circle} = require("./lib/shapes")
 
 const questions = [
     {
@@ -10,7 +11,7 @@ const questions = [
   {
     type: 'input',
     message: 'Enter a color for the text OR a hexadecimal number.',
-    name: 'text-color'
+    name: 'text_color'
   },
   {
     type: 'list',
@@ -21,7 +22,7 @@ const questions = [
   {
     type: 'input',
     message: 'Enter a color for the shape OR a hexadecimal number.',
-    name: 'shape-color'
+    name: 'shape_color'
   },
 ];
 
@@ -32,12 +33,18 @@ function writeToFile(fileName, data) {}
 function init() {
     inquirer.prompt(questions)
     .then((response) => {
-        //console.log(response)
-    const template = generateSVG(response)
-    console.log(template)
-    fs.writeFile('./examples/logo.svg', template, (err) =>
+        console.log(response)
+        let shape;
+
+        shape = new Circle(response.text, response.text_color, response.shape_color)
+        console.log(shape);
+        logo = shape.render()
+        console.log(logo)
+    // const template = generateSVG(response)
+    // console.log(template)
+    fs.writeFile('./examples/logo.svg', logo, (err) =>
     err ? console.log(err) : console.log('Generated logo.svg')
-  );
+ );
     })
 }
 //function to generate SVG
