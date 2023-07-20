@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const {Circle} = require("./lib/shapes")
+const {Circle, Square, Triangle} = require("./lib/shapes")
 
 const questions = [
     {
@@ -36,7 +36,15 @@ function init() {
         console.log(response)
         let shape;
 
-        shape = new Circle(response.text, response.text_color, response.shape_color)
+        if(response.shape === "triangle") {
+            shape = new Triangle(response.text, response.text_color, response.shape_color)
+        }
+        if(response.shape === "circle") {
+            shape = new Circle(response.text, response.text_color, response.shape_color)
+        }
+        if(response.shape === "square") {
+            shape = new Square(response.text, response.text_color, response.shape_color)
+        }
         console.log(shape);
         logo = shape.render()
         console.log(logo)
@@ -47,8 +55,6 @@ function init() {
  );
     })
 }
-//function to generate SVG
-function generateSVG(data) {}
 
 
 // Function call to initialize app
