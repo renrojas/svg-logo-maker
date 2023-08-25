@@ -37,13 +37,19 @@ function init() {
         let shape;
 
         if(response.shape === "triangle") {
-            shape = new Triangle(response.text, response.text_color, response.shape_color)
+            shape = new Triangle();
+            shape.setColor(response.shape_color);
+            shape.setText(response.text, response.text_color);
         }
         if(response.shape === "circle") {
-            shape = new Circle(response.text, response.text_color, response.shape_color)
+          shape = new Circle();
+          shape.setColor(response.shape_color);
+          shape.setText(response.text, response.text_color);
         }
         if(response.shape === "square") {
-            shape = new Square(response.text, response.text_color, response.shape_color)
+          shape = new Square();
+          shape.setColor(response.shape_color);
+          shape.setText(response.text, response.text_color);
         }
         console.log(shape);
         logo = shape.render()
