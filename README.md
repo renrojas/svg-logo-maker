@@ -10,7 +10,7 @@ Project Repository on GitHub: https://github.com/renrojas/svg-logo-maker
 
 ## Usage
 
-Video Walkthrough - 
+Video Walkthrough - https://youtu.be/xsLxAObsxe0
 
 To navigate this application, you will start by invoking the application by using the following Command: node index.js. You will then be guided through a set of questions which you will need to answer to create the SVG file for your logo. Once finished with the questions, you can access the file under the examples folder and right clicking 'Preview SVG' on the file logo.svg.
 
